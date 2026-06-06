@@ -1,0 +1,10 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FBFF"/>
+  <rect x="44" y="44" width="1112" height="542" rx="36" fill="#0F203A"/>
+  <path d="M744 44H1156V324C1032 284 950 298 842 358C776 394 736 442 684 514L610 586H44V416C148 366 220 314 316 236C438 138 520 78 744 44Z" fill="#0F5CC0"/>
+  <circle cx="970" cy="172" r="84" fill="#F28C28"/>
+  <text x="110" y="182" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="48" font-weight="700">MonVolt Supply</text>
+  <text x="110" y="298" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="82" font-weight="700">Цахилгаан бараа, тоног</text>
+  <text x="110" y="388" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="82" font-weight="700">төхөөрөмж, үйлчилгээ</text>
+  <text x="110" y="476" fill="#C5D5ED" font-family="Arial, sans-serif" font-size="34" font-weight="600">Sales · Service · Supply Chain</text>
+</svg>

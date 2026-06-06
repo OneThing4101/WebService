@@ -1,0 +1,10 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="64" fill="#F7FBFF"/>
+  <rect x="120" y="140" width="1360" height="920" rx="56" fill="#FFFFFF"/>
+  <path d="M260 720C420 510 700 460 860 560C1020 660 1180 610 1320 400" stroke="#0F5CC0" stroke-width="52" stroke-linecap="round"/>
+  <path d="M260 820C420 610 700 560 860 660C1020 760 1180 710 1320 500" stroke="#F28C28" stroke-width="32" stroke-linecap="round"/>
+  <path d="M260 620C420 410 700 360 860 460C1020 560 1180 510 1320 300" stroke="#0F203A" stroke-opacity="0.16" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="360" cy="360" r="110" fill="#0F5CC0" fill-opacity="0.12"/>
+  <text x="480" y="390" fill="#0F203A" font-family="Arial, sans-serif" font-size="110" font-weight="700">CABLE</text>
+  <text x="480" y="485" fill="#627189" font-family="Arial, sans-serif" font-size="54" font-weight="600">Power transmission placeholder</text>
+</svg>

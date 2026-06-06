@@ -1,0 +1,11 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="64" fill="#F7FBFF"/>
+  <rect x="170" y="130" width="1260" height="940" rx="52" fill="#FFFFFF"/>
+  <rect x="260" y="220" width="1080" height="760" rx="36" fill="#0F203A"/>
+  <rect x="340" y="300" width="920" height="600" rx="28" fill="#F7FBFF"/>
+  <path d="M500 420H1100" stroke="#0F5CC0" stroke-width="24" stroke-linecap="round"/>
+  <path d="M500 550H1020" stroke="#0F5CC0" stroke-opacity="0.26" stroke-width="20" stroke-linecap="round"/>
+  <path d="M500 660H960" stroke="#0F5CC0" stroke-opacity="0.26" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="1120" cy="735" r="82" fill="#F28C28"/>
+  <text x="500" y="820" fill="#0F203A" font-family="Arial, sans-serif" font-size="100" font-weight="700">PANEL</text>
+</svg>
