@@ -4,19 +4,12 @@ import { BrandLogo } from "@/components/brands/brand-logo";
 import { CategoryGrid } from "@/components/home/category-grid";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { HomeHero } from "@/components/home/home-hero";
-import { ProductCard } from "@/components/products/product-card";
 import { IconToken } from "@/components/shared/icon-token";
 import { Reveal } from "@/components/shared/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import {
-  companyMetrics,
-  getBrands,
-  getCategories,
-  whyChooseUs,
-} from "@/lib/data";
-import { listManagedProducts } from "@/lib/catalog-store";
+import { companyMetrics, getCategories, whyChooseUs } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 import { getBrandsWithLogoStatus } from "@/src/lib/brand-assets";
 
@@ -42,13 +35,8 @@ export const metadata = createPageMetadata({
   path: "/",
 });
 
-export default async function HomePage() {
+export default function HomePage() {
   const categories = getCategories();
-  const managedProducts = await listManagedProducts();
-  const featuredProducts = managedProducts
-    .filter((product) => product.featured)
-    .slice(0, 8);
-  const brands = getBrands();
   const allBrandsWithLogo = getBrandsWithLogoStatus();
   const homeBrands = homeBrandSlugs.flatMap((slug) =>
     allBrandsWithLogo.filter((brand) => brand.slug === slug).slice(0, 1),
@@ -61,32 +49,6 @@ export default async function HomePage() {
       <Container>
         <CategoryGrid categories={categories} />
       </Container>
-
-      <section className="bg-panel/[0.55] py-16 sm:py-20">
-        <Container className="space-y-10">
-          <SectionHeading
-            eyebrow="Онцлох бүтээгдэхүүн"
-            title="Цахилгаан бараа, тоног төхөөрөмжийн каталог"
-            description="Барилга, үйлдвэр, уул уурхай, оффисын хэрэглээнд зориулсан цахилгааны материал, автоматжуулалт, гэрэлтүүлэг, багаж хэрэгслийг нийлүүлнэ."
-          />
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {featuredProducts.map((product, index) => {
-              const category = categories.find((item) => item.slug === product.category);
-              const brand = brands.find((item) => item.id === product.brand);
-
-              return (
-                <Reveal key={product.id} delay={index * 0.05}>
-                  <ProductCard
-                    product={product}
-                    categoryName={category?.name ?? "Ангилал"}
-                    brandName={brand?.name ?? "Брэнд"}
-                  />
-                </Reveal>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
 
       <section className="overflow-hidden bg-white py-16 sm:py-20">
         <Container className="space-y-10">

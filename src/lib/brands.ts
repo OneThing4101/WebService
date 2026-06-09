@@ -21,6 +21,7 @@ export type Brand = {
   logo: string;
   description: string;
   category: BrandCategory;
+  logoType?: "brand" | "category";
   keywords?: string[];
   featured?: boolean;
   productCategories?: string[];
@@ -171,7 +172,7 @@ export const brands: Brand[] = [
     id: "tmac",
     name: "TMAC",
     slug: "tmac",
-    logo: "/brands/tmac.svg",
+    logo: "/brands/tmac.png",
     description:
       "Өндөр хүчдэл тусгаарлах ажлын резинэн бээлий болон хамгаалалтын хэрэгсэл.",
     category: "Цахилгаан тоног төхөөрөмж",
@@ -192,7 +193,8 @@ export const brands: Brand[] = [
     id: "solar-panels-charge-controllers",
     name: "Solar panels and charge controllers",
     slug: "solar-panels-charge-controllers",
-    logo: "/brands/solar-panels-charge-controllers.svg",
+    logo: "/brands/categories/solar-panels.svg",
+    logoType: "category",
     description:
       "100-600Вт нарны дэлгэц, нарны цэнэг зохицуулагч болон off-grid тэжээлийн шийдэл.",
     category: "Эрчим хүч / Battery",
@@ -202,7 +204,7 @@ export const brands: Brand[] = [
     id: "sintronics",
     name: "SINTRONICS",
     slug: "sintronics",
-    logo: "/brands/sintronics.svg",
+    logo: "/brands/sintronics.png",
     description:
       "SIEMENS control panel-ын нугас, цоож, түгжээ болон cabinet дагалдах хэрэгсэл.",
     category: "Цахилгаан тоног төхөөрөмж",
@@ -222,7 +224,7 @@ export const brands: Brand[] = [
     id: "pce-instruments",
     name: "PCE Instruments",
     slug: "pce-instruments",
-    logo: "/brands/pce-instruments.svg",
+    logo: "/brands/pce-instruments.png",
     description:
       "Өндөр нарийвчлалтай хэмжилтийн багаж, testing equipment болон field instruments.",
     category: "Хэмжилтийн багаж",
@@ -253,7 +255,7 @@ export const brands: Brand[] = [
     id: "thorne-derrick",
     name: "THORNE AND DERRICK INTERNATIONAL",
     slug: "thorne-derrick",
-    logo: "/brands/thorne-derrick.svg",
+    logo: "/brands/thorne-derrick.png",
     description:
       "Өндөр, дунд, нам хүчдлийн цахилгааны тоног төхөөрөмж болон дагалдах хэрэгсэл.",
     category: "Цахилгаан тоног төхөөрөмж",
@@ -263,7 +265,7 @@ export const brands: Brand[] = [
     id: "retrotec",
     name: "RETROTEC",
     slug: "retrotec",
-    logo: "/brands/retrotec.svg",
+    logo: "/brands/retrotec.png",
     description:
       "Галын битүүмж шалгах багаж хэрэгсэл болон enclosure integrity testing шийдэл.",
     category: "Галын аюулгүй байдал",
@@ -273,7 +275,8 @@ export const brands: Brand[] = [
     id: "iasus",
     name: "IASUS",
     slug: "iasus",
-    logo: "/brands/iasus.svg",
+    logo: "/brands/categories/communications-headset.svg",
+    logoType: "category",
     description:
       "Өндөр дуу чимээтэй орчинд зориулсан микрофон, чихэвч болон холбооны шийдэл.",
     category: "Сүлжээ холбоо",
@@ -283,7 +286,7 @@ export const brands: Brand[] = [
     id: "asenware",
     name: "ASENWARE",
     slug: "asenware",
-    logo: "/brands/asenware.svg",
+    logo: "/brands/asenware.png",
     description:
       "Галын самбар, галын ус түгээх хоолой, шланк болон fire system дагалдах хэрэгсэл.",
     category: "Галын аюулгүй байдал",
@@ -313,7 +316,8 @@ export const brands: Brand[] = [
     id: "stainless-steel-fittings",
     name: "Stainless steel fittings",
     slug: "stainless-steel-fittings",
-    logo: "/brands/stainless-steel-fittings.svg",
+    logo: "/brands/categories/stainless-steel-fittings.svg",
+    logoType: "category",
     description:
       "Stainless steel труба, холбогч, крант, camlock, tee, elbow, connector, clamp, ball valve.",
     category: "Аж үйлдвэрийн материал",
@@ -353,7 +357,7 @@ export const brands: Brand[] = [
     id: "leipole",
     name: "LEIPOLE",
     slug: "leipole",
-    logo: "/brands/leipole.svg",
+    logo: "/brands/leipole.png",
     description:
       "Цахилгааны terminal block, transformer, PCB connector, busbar болон cabinet хэрэгсэл.",
     category: "Цахилгаан тоног төхөөрөмж",
@@ -444,7 +448,7 @@ export const brands: Brand[] = [
     id: "flomec",
     name: "FLOMEC",
     slug: "flomec",
-    logo: "/brands/flomec.svg",
+    logo: "/brands/flomec.png",
     description:
       "Урсгал мэдрэгч, дамжуулагч хэрэгсэл болон flow measurement шийдэл.",
     category: "Хэмжилтийн багаж",
@@ -484,7 +488,7 @@ export const brands: Brand[] = [
     id: "syntec-fuelmaster",
     name: "SYNTEC / FUELMASTER",
     slug: "syntec-fuelmaster",
-    logo: "/brands/syntec-fuelmaster.svg",
+    logo: "/brands/syntec-fuelmaster.png",
     description:
       "Түлш цэнэглэх ухаалаг дэд бүтэц систем, fuel management болон site automation.",
     category: "Уул уурхай",
@@ -514,7 +518,8 @@ export const brands: Brand[] = [
     id: "jg",
     name: "JG",
     slug: "jg",
-    logo: "/brands/jg.svg",
+    logo: "/brands/categories/industrial-mount.svg",
+    logoType: "category",
     description:
       "Уул уурхайн тоног төхөөрөмжийн чичиргээ шингээгч резинэн суурь, хөл болон mount.",
     category: "Механик сэлбэг",
@@ -544,7 +549,8 @@ export const brands: Brand[] = [
     id: "rock-bolt-washer-plate",
     name: "Rock bolt and washer plate",
     slug: "rock-bolt-washer-plate",
-    logo: "/brands/rock-bolt-washer-plate.svg",
+    logo: "/brands/categories/rock-bolt.svg",
+    logoType: "category",
     description:
       "Гүний уурхайн rock bolt, washer plate болон ground support материал.",
     category: "Уул уурхай",
@@ -554,7 +560,8 @@ export const brands: Brand[] = [
     id: "outdoor-tarpaulin",
     name: "Outdoor tarpaulin",
     slug: "outdoor-tarpaulin",
-    logo: "/brands/outdoor-tarpaulin.svg",
+    logo: "/brands/categories/outdoor-tarpaulin.svg",
+    logoType: "category",
     description:
       "Том хэмжээтэй, гадаа тэсвэртэй брезентэн бүтээлэг болон хамгаалалтын материал.",
     category: "Аж үйлдвэрийн материал",
@@ -564,7 +571,8 @@ export const brands: Brand[] = [
     id: "desiccant",
     name: "DESICCANT",
     slug: "desiccant",
-    logo: "/brands/desiccant.svg",
+    logo: "/brands/categories/desiccant.svg",
+    logoType: "category",
     description:
       "Ахуйн болон үйлдвэрийн чийг шингээгч, хадгалалт тээвэрлэлтийн хамгаалалтын материал.",
     category: "Аж үйлдвэрийн материал",
@@ -624,7 +632,7 @@ export const brands: Brand[] = [
     id: "emerson-copeland",
     name: "EMERSON COPELAND",
     slug: "emerson-copeland",
-    logo: "/brands/emerson-copeland.svg",
+    logo: "/brands/emerson-copeland.png",
     description:
       "Хөргүүрийн компрессор, refrigeration system сэлбэг болон HVAC тоноглол.",
     category: "HVAC / Агааржуулалт",
@@ -654,7 +662,8 @@ export const brands: Brand[] = [
     id: "industrial-chains",
     name: "Industrial chains",
     slug: "industrial-chains",
-    logo: "/brands/industrial-chains.svg",
+    logo: "/brands/categories/industrial-chains.svg",
+    logoType: "category",
     description:
       "Аж үйлдвэр, уул уурхайн тосолгоотой гинж болон дамжуулгын механик сэлбэг.",
     category: "Механик сэлбэг",

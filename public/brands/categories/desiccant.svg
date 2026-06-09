@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Desiccant category">
+  <rect x="62" y="20" width="116" height="64" rx="18" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4"/>
+  <path d="M82 38h76M82 54h76" stroke="#dbe7f3" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="92" cy="68" r="5" fill="#87b8ee"/>
+  <circle cx="114" cy="68" r="5" fill="#87b8ee"/>
+  <circle cx="136" cy="68" r="5" fill="#87b8ee"/>
+  <path d="M176 18c14 16 20 30 20 42 0 13-9 23-22 23s-22-10-22-23c0-12 7-26 24-42z" fill="#fff7ed" stroke="#f28c28" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M167 62c5 7 13 7 18 0" stroke="#f28c28" stroke-width="4" stroke-linecap="round"/>
+</svg>

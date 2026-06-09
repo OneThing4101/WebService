@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Outdoor tarpaulin category">
+  <path d="M42 24h156l-14 56H28z" fill="#eff6ff" stroke="#0f5cc0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M58 24 44 80M91 24 77 80M124 24l-14 56M157 24l-14 56M190 24l-14 56M35 53h178" stroke="#87b8ee" stroke-width="3"/>
+  <circle cx="56" cy="38" r="5" fill="#fff" stroke="#f28c28" stroke-width="3"/>
+  <circle cx="122" cy="38" r="5" fill="#fff" stroke="#f28c28" stroke-width="3"/>
+  <circle cx="188" cy="38" r="5" fill="#fff" stroke="#f28c28" stroke-width="3"/>
+  <path d="M28 80h156" stroke="#0f203a" stroke-width="4" stroke-linecap="round"/>
+</svg>

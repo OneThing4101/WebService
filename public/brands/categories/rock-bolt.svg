@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Rock bolt category">
+  <path d="M48 72 158 30" stroke="#0f203a" stroke-width="12" stroke-linecap="round"/>
+  <path d="M58 69 168 27" stroke="#0f5cc0" stroke-width="4" stroke-linecap="round"/>
+  <path d="m154 22 28 14-12 25-28-14z" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M39 62h34v24H39z" fill="#fff7ed" stroke="#f28c28" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M64 29 36 43l10-28h28zM180 65l28 8-20 18-24-14z" fill="#dbeafe" stroke="#87b8ee" stroke-width="3" stroke-linejoin="round"/>
+</svg>

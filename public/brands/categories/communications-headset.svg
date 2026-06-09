@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Communications headset category">
+  <path d="M66 52c0-28 21-44 54-44s54 16 54 44" fill="none" stroke="#0f203a" stroke-width="6" stroke-linecap="round"/>
+  <rect x="46" y="45" width="32" height="34" rx="10" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4"/>
+  <rect x="162" y="45" width="32" height="34" rx="10" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4"/>
+  <path d="M158 72c-8 8-20 12-36 12h-16" stroke="#0f203a" stroke-width="5" stroke-linecap="round"/>
+  <rect x="86" y="76" width="24" height="12" rx="6" fill="#f28c28"/>
+  <path d="M112 32c12 8 18 19 18 34M134 30c9 8 14 17 15 30" stroke="#87b8ee" stroke-width="4" stroke-linecap="round"/>
+</svg>

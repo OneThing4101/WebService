@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Stainless steel fittings category">
+  <defs>
+    <linearGradient id="steel-a" x1="42" x2="176" y1="18" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eff6ff"/>
+      <stop offset=".5" stop-color="#cbd5e1"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+  </defs>
+  <path d="M52 30h70c16 0 28 12 28 28v8h-28v-8c0-1-1-2-2-2H52z" fill="url(#steel-a)" stroke="#0f203a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M40 24h28v62H40zM150 58h58v28h-58z" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4"/>
+  <path d="M46 36h16M46 49h16M46 62h16M46 75h16M162 64v16M176 64v16M190 64v16" stroke="#87b8ee" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="125" cy="56" r="7" fill="#f28c28"/>
+</svg>

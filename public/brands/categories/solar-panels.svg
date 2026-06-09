@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 96" role="img" aria-label="Solar panels category">
+  <rect x="34" y="24" width="104" height="52" rx="8" fill="#f8fbff" stroke="#0f5cc0" stroke-width="4"/>
+  <path d="M60 24v52M86 24v52M112 24v52M34 50h104" stroke="#87b8ee" stroke-width="3"/>
+  <path d="M146 72h-84l-12 14h104z" fill="#dbeafe" stroke="#0f5cc0" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="174" cy="35" r="15" fill="#fff7ed" stroke="#f28c28" stroke-width="4"/>
+  <path d="M174 10v8M174 52v8M149 35h8M191 35h8M156 17l6 6M188 17l-6 6M156 53l6-6M188 53l-6-6" stroke="#f28c28" stroke-width="4" stroke-linecap="round"/>
+</svg>

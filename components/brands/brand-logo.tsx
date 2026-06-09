@@ -26,6 +26,11 @@ function hasAvailableLogo(
 }
 
 export function BrandLogo({ brand, className, imageClassName }: BrandLogoProps) {
+  const imageAlt =
+    brand.logoType === "category"
+      ? `${brand.name} category illustration`
+      : `${brand.name} logo`;
+
   return (
     <div
       className={cn(
@@ -36,7 +41,7 @@ export function BrandLogo({ brand, className, imageClassName }: BrandLogoProps) 
       {hasAvailableLogo(brand) ? (
         <Image
           src={brand.logo}
-          alt={`${brand.name} logo`}
+          alt={imageAlt}
           width={190}
           height={72}
           unoptimized
