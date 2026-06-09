@@ -1,95 +1,96 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { companyMetrics } from "@/lib/data";
+import { NetworkBackground } from "@/components/visual/network-background";
+
+const supplyStats = [
+  { value: "5+", label: "жил туршлага" },
+  { value: "60+", label: "брэнд" },
+  { value: "24 цаг", label: "дотор хариу" },
+];
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-[linear-gradient(135deg,#f8fbff_0%,#ffffff_52%,#fff5eb_100%)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(15,92,192,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(242,140,40,0.16),transparent_32%)]" />
+    <section className="relative overflow-hidden border-b border-border bg-[#f8fbff]">
+      <NetworkBackground opacity={0.36} />
+      <div className="absolute -right-24 top-10 h-96 w-96 rounded-full bg-sky-200/35 blur-3xl" />
       <Container className="relative py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-[1.05fr_minmax(340px,0.95fr)] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center">
           <Reveal className="space-y-8">
-            <Badge>Цахилгааны бараа · Сервис · Supply Chain</Badge>
+            <Badge className="bg-white/75 shadow-sm">Industrial · Electrical · Supply</Badge>
             <div className="space-y-5">
-              <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                Цахилгаан бараа, тоног төхөөрөмж, үйлчилгээний найдвартай шийдэл
+              <h1 className="max-w-5xl font-display text-4xl font-bold leading-[1.02] tracking-tight text-ink sm:text-5xl lg:text-7xl">
+                Үйлдвэр, уурхай, барилгын цахилгаан нийлүүлэлтийн найдвартай түнш
               </h1>
               <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                Барилга, үйлдвэр, оффис, гэр ахуйн цахилгааны материал, тоног
-                төхөөрөмж болон мэргэжлийн угсралт засварын үйлчилгээ.
+                Брэнд нэр, part number, техникийн шаардлага дээр үндэслэн цахилгаан
+                тоног төхөөрөмж, автоматжуулалт, багаж хэрэгсэл болон үйлдвэрийн
+                сэлбэгийн үнийн санал бэлтгэнэ.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Link href="/products" className={buttonVariants({ size: "lg" })}>
-                Бүтээгдэхүүн үзэх
+              <Link href="/contact" className={buttonVariants({ size: "lg" })}>
+                Үнийн санал авах
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/contact"
-                className={buttonVariants({ variant: "outline", size: "lg" })}
+                href="/brands"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "lg",
+                  className: "bg-white/80 shadow-none",
+                })}
               >
-                Үнийн санал авах
+                Брэндүүд харах
               </Link>
             </div>
 
-            <div className="flex flex-wrap gap-3 text-sm text-muted">
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 shadow-[0_16px_34px_rgba(14,34,64,0.06)]">
-                <ShieldCheck className="h-4 w-4 text-primary" />
+            <div className="flex flex-wrap gap-2.5 text-sm font-medium text-ink">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-2 shadow-sm">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 Албан ёсны нийлүүлэлт
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 shadow-[0_16px_34px_rgba(14,34,64,0.06)]">
-                <ShieldCheck className="h-4 w-4 text-primary" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-2 shadow-sm">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
                 Инженерийн зөвлөгөө
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 shadow-[0_16px_34px_rgba(14,34,64,0.06)]">
-                <ShieldCheck className="h-4 w-4 text-primary" />
-                B2B / B2C хамтын ажиллагаа
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-2 shadow-sm">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                B2B procurement
               </span>
             </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-ink p-6 text-white shadow-[0_40px_100px_rgba(14,34,64,0.18)] sm:p-8">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(242,140,40,0.28),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent)]" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-ink p-6 text-white shadow-[0_34px_90px_rgba(15,32,58,0.22)] sm:p-7">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/35 blur-3xl" />
+              <div className="absolute -bottom-12 left-8 h-36 w-36 rounded-full bg-accent/20 blur-3xl" />
               <div className="relative">
-                <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-white/[0.55]">
-                        Project Supply Dashboard
-                      </p>
-                      <h2 className="mt-2 font-display text-2xl font-bold">
-                        Нийлүүлэлт + Сервис
-                      </h2>
-                    </div>
-                    <div className="rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent">
-                      Active
-                    </div>
-                  </div>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-200/80">
+                  Project Supply
+                </p>
+                <h2 className="mt-3 font-display text-3xl font-bold">ProProc Supply</h2>
+                <p className="mt-3 text-sm leading-6 text-white/65">
+                  BOQ, part number, brand requirement дээр тулгуурлан нийлүүлэлтийн
+                  үнийн санал, хугацаа, боломжит хувилбарыг бэлтгэнэ.
+                </p>
 
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    {companyMetrics.map((metric) => (
-                      <div
-                        key={metric.label}
-                        className="rounded-3xl border border-white/10 bg-white/[0.06] p-4"
-                      >
-                        <div className="font-display text-2xl font-bold text-white">
-                          {metric.value}
-                        </div>
-                        <div className="mt-1 text-sm font-medium text-white/80">
-                          {metric.label}
-                        </div>
-                        <p className="mt-3 text-sm leading-6 text-white/60">
-                          {metric.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-7 grid gap-3">
+                  {supplyStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3"
+                    >
+                      <span className="text-sm font-medium text-white/70">{stat.label}</span>
+                      <span className="font-display text-2xl font-bold text-white">
+                        {stat.value}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

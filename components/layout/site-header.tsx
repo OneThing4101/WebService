@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { Phone } from "lucide-react";
-import { HeaderSearch } from "@/components/layout/header-search";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { SiteLogo } from "@/components/layout/site-logo";
-import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 import { mainNavigation } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -30,17 +28,14 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <HeaderSearch />
             <Link
               href="/contact"
               className={buttonVariants({
-                variant: "dark",
                 size: "md",
-                className: "hidden lg:inline-flex",
+                className: "hidden shadow-none lg:inline-flex",
               })}
             >
-              <Phone className="h-4 w-4" />
-              Холбоо барих
+              Үнийн санал авах
             </Link>
             <MobileNav />
           </div>

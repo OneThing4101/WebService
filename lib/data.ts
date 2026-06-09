@@ -1,5 +1,4 @@
 import type {
-  Brand,
   Category,
   CompanyMetric,
   CompanyValue,
@@ -9,6 +8,7 @@ import type {
   Service,
   TrustItem,
 } from "@/lib/types";
+import { brands } from "@/src/lib/brands";
 
 export const categories: Category[] = [
   {
@@ -17,7 +17,7 @@ export const categories: Category[] = [
     slug: "tsahilgaany-material",
     icon: "plug",
     description:
-      "Барилга, үйлдвэр, оффисын өдөр тутмын цахилгааны суурь материал, дагалдах хэрэгсэл.",
+      "Розетка, залгуур, холбогч, terminal, суурилуулалтын өдөр тутмын материал.",
   },
   {
     id: "cat-lighting",
@@ -52,127 +52,44 @@ export const categories: Category[] = [
       "Түгээх самбар, хяналтын шүүгээ, хамгаалалтын хайрцаг болон захиалгат угсралтын шийдэл.",
   },
   {
-    id: "cat-industrial",
-    name: "Үйлдвэрийн тоног төхөөрөмж",
-    slug: "uildveriin-tonog",
+    id: "cat-automation",
+    name: "Автоматжуулалт",
+    slug: "avtomatjuulalt",
     icon: "factory",
     description:
-      "Аж үйлдвэрийн орчинд ашиглах цахилгаан хангамж, хөдөлгүүрийн удирдлага, тоноглол.",
+      "PLC, control panel, sensor, relay болон үйлдвэрийн удирдлагын дагалдах хэрэгсэл.",
   },
   {
-    id: "cat-parts",
-    name: "Сэлбэг хэрэгсэл",
-    slug: "selbeg-kheregsel",
-    icon: "package",
+    id: "cat-measuring",
+    name: "Хэмжилтийн багаж",
+    slug: "hemjiltiin-bagaj",
+    icon: "scan",
     description:
-      "Засвар үйлчилгээ, тоног төхөөрөмжийн тасралтгүй ажиллагаанд шаардлагатай сэлбэг, дагалдах.",
+      "Цахилгааны хэмжилт, оношилгоо, туршилтад ашиглах мэргэжлийн багаж.",
   },
   {
-    id: "cat-service",
-    name: "Засвар үйлчилгээ",
-    slug: "zasvar-uilchilgee",
-    icon: "wrench",
+    id: "cat-battery",
+    name: "Эрчим хүч / Battery",
+    slug: "erchim-huch-battery",
+    icon: "bolt",
     description:
-      "Оношилгоо, урсгал үйлчилгээ, гэмтэл засвар болон талбайн дуудлагын үйлчилгээ.",
-  },
-];
-
-export const brands: Brand[] = [
-  {
-    id: "gf",
-    name: "GF",
-    logo: "",
-    description:
-      "Гэрэлтүүлэг, дэд бүтэц болон барилгын цахилгааны өргөн хэрэглээний бүтээгдэхүүний placeholder брэнд.",
-    productCategories: ["Гэрэлтүүлэг", "Самбар, хайрцаг"],
+      "UPS, backup power, control panel болон нарны системд зориулсан battery шийдэл.",
   },
   {
-    id: "hedweld",
-    name: "HEDWELD",
-    logo: "",
+    id: "cat-network",
+    name: "Сүлжээ холбоо",
+    slug: "suljee-holboo",
+    icon: "boxes",
     description:
-      "Үйлдвэрийн тоног төхөөрөмж, ажлын талбайн зориулалттай хүнд нөхцлийн шийдлүүдийн placeholder брэнд.",
-    productCategories: ["Үйлдвэрийн тоног төхөөрөмж", "Сэлбэг хэрэгсэл"],
+      "Industrial switch, router, wireless болон холбооны тоног төхөөрөмжийн нийлүүлэлт.",
   },
   {
-    id: "pcm",
-    name: "PCM",
-    logo: "",
+    id: "cat-fire-safety",
+    name: "Галын аюулгүй байдал",
+    slug: "galyn-ayuulgui-baidal",
+    icon: "shield",
     description:
-      "Кабель, дагалдах хэрэгсэл, суурилуулалтын материалын placeholder нийлүүлэгч.",
-    productCategories: ["Кабель, утас", "Цахилгааны материал"],
-  },
-  {
-    id: "hubner",
-    name: "HUBNER",
-    logo: "",
-    description:
-      "Хэмжилт, хяналт, үйлдвэрийн автоматжуулалтын placeholder бүтээгдэхүүнтэй брэнд.",
-    productCategories: ["Үйлдвэрийн тоног төхөөрөмж", "Самбар, хайрцаг"],
-  },
-  {
-    id: "ausproof",
-    name: "AUSPROOF",
-    logo: "",
-    description:
-      "Дэлбэрэлтийн хамгаалалттай орчны placeholder гэрэлтүүлэг, хамгаалалтын шийдэл.",
-    productCategories: ["Гэрэлтүүлэг", "Автомат таслуур"],
-  },
-  {
-    id: "iem",
-    name: "IEM",
-    logo: "",
-    description:
-      "Түгээлтийн самбар, хамгаалалтын модуль, удирдлагын placeholder системийн брэнд.",
-    productCategories: ["Автомат таслуур", "Самбар, хайрцаг"],
-  },
-  {
-    id: "hobart",
-    name: "HOBART",
-    logo: "",
-    description:
-      "Үйлдвэрийн төхөөрөмжийн цахилгаан хангамж болон placeholder дагалдах бүтээгдэхүүн.",
-    productCategories: ["Үйлдвэрийн тоног төхөөрөмж", "Сэлбэг хэрэгсэл"],
-  },
-  {
-    id: "gms",
-    name: "GMS",
-    logo: "",
-    description:
-      "Барилгын дэд бүтэц, кабель чиглүүлэлт, placeholder цахилгаан материалын брэнд.",
-    productCategories: ["Цахилгааны материал", "Кабель, утас"],
-  },
-  {
-    id: "jw-speaker",
-    name: "JW Speaker",
-    logo: "",
-    description:
-      "Хүнд нөхцөл, гадна талбайн placeholder гэрэлтүүлгийн мэргэжлийн брэнд.",
-    productCategories: ["Гэрэлтүүлэг"],
-  },
-  {
-    id: "crc",
-    name: "CRC",
-    logo: "",
-    description:
-      "Засвар үйлчилгээ, хамгаалалт, техникийн арчилгааны placeholder бүтээгдэхүүн.",
-    productCategories: ["Сэлбэг хэрэгсэл", "Засвар үйлчилгээ"],
-  },
-  {
-    id: "npc-electric",
-    name: "NPC Electric",
-    logo: "",
-    description:
-      "Автомат таслуур, хуваарилах самбар, хамгаалалтын төхөөрөмжийн placeholder брэнд.",
-    productCategories: ["Автомат таслуур", "Самбар, хайрцаг"],
-  },
-  {
-    id: "opp-iot",
-    name: "OPP IOT",
-    logo: "",
-    description:
-      "Ухаалаг хяналт, эрчим хүчний мониторинг, placeholder холбоос шийдлүүдийн брэнд.",
-    productCategories: ["Үйлдвэрийн тоног төхөөрөмж", "Цахилгааны материал"],
+      "Галын самбар, илрүүлэгч, аваарын систем болон safety дагалдах хэрэгсэл.",
   },
 ];
 
@@ -257,14 +174,14 @@ export const products: Product[] = [
     name: "LED Panel 40W Pro",
     slug: "led-panel-40w-pro",
     category: "gereltuuleg",
-    brand: "gf",
+    brand: "philips",
     price: 185000,
     stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/lighting.svg"),
+    images: ["/products/led-panel-40w-pro.svg"],
     shortDescription:
       "Оффис, худалдааны орчинд зориулсан жигд гэрэлтүүлэгтэй, хэмнэлттэй LED panel.",
     description:
-      "LED Panel 40W Pro нь тогтвортой өнгөний температур, өндөр үр ашигтай diffuser, урт насжилттай драйверын шийдэлтэй. Оффис, үйлчилгээний барилга болон сургалтын орчинд төгс тохирно.",
+      "Оффис, худалдааны танхим, сургалтын өрөө болон үйлчилгээний орчинд зориулсан жигд гэрэлтүүлэгтэй LED panel. Төслийн тоо хэмжээгээр нийлүүлэх боломжтой.",
     specs: [
       { label: "Чадал", value: "40W" },
       { label: "Хэмжээ", value: "600 x 600 мм" },
@@ -279,14 +196,14 @@ export const products: Product[] = [
     name: "Industrial Floodlight 150W",
     slug: "industrial-floodlight-150w",
     category: "gereltuuleg",
-    brand: "jw-speaker",
+    brand: "philips",
     price: 420000,
     stockStatus: "Захиалгаар",
-    images: Array(3).fill("/placeholders/products/lighting.svg"),
+    images: ["/products/industrial-floodlight-150w.svg"],
     shortDescription:
-      "Агуулах, үйлдвэрийн гадна болон өндөр таазтай орчинд зориулсан өндөр чадлын гэрэлтүүлэг.",
+      "Агуулах, үйлдвэр, гадна талбайд зориулсан өндөр чадлын гэрэлтүүлэг.",
     description:
-      "Industrial Floodlight 150W нь метал их биетэй, гадаад орчны нөлөөлөлд тэсвэртэй, алсын тусгал сайтай гэрэлтүүлгийн шийдэл юм. Үйлдвэрийн талбай, агуулах, ачилтын бүсэд өргөн ашиглана.",
+      "Метал их биетэй, гадаад орчны нөлөөлөлд тэсвэртэй, алсын тусгал сайтай үйлдвэрийн гэрэлтүүлгийн шийдэл. Агуулах, үйлдвэр, ачилтын талбайд тохиромжтой.",
     specs: [
       { label: "Чадал", value: "150W" },
       { label: "Хүчдэл", value: "220-240V" },
@@ -301,12 +218,12 @@ export const products: Product[] = [
     name: "MCCB 3P 100A",
     slug: "mccb-3p-100a",
     category: "avtomat-tasluur",
-    brand: "npc-electric",
+    brand: "schneider-electric",
     price: 268000,
     stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/breaker.svg"),
+    images: ["/products/mccb-3p-100a.svg"],
     shortDescription:
-      "Түгээлтийн самбар, хүчний шугамд ашиглах найдвартай 3 фазын автомат таслуур.",
+      "Түгээлтийн самбар, хүчний шугамд ашиглах 3 фазын автомат таслуур.",
     description:
       "MCCB 3P 100A нь богино залгааны хамгаалалт, ачааллын найдвартай таслалтыг хангах зориулалттай. Барилгын ерөнхий түгээлт болон үйлдвэрлэлийн шугамд ашиглахад тохиромжтой.",
     specs: [
@@ -319,178 +236,200 @@ export const products: Product[] = [
     featured: true,
   },
   {
-    id: "prod-mcb-32a",
-    name: "MCB 1P 32A",
-    slug: "mcb-1p-32a",
-    category: "avtomat-tasluur",
-    brand: "iem",
-    price: 28500,
-    stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/breaker.svg"),
-    shortDescription:
-      "Орон сууц, оффис, жижиг самбарын хэлхээ хамгаалалтад зориулсан compact MCB.",
-    description:
-      "MCB 1P 32A нь өдөр тутмын хэрэглээний самбаруудад суурилуулахад тохиромжтой, найдвартай ажиллагаатай хамгаалалтын төхөөрөмж юм. Угсрахад хялбар DIN rail суурилуулалттай.",
-    specs: [
-      { label: "Полюс", value: "1P" },
-      { label: "Нэрлэсэн гүйдэл", value: "32A" },
-      { label: "Curve", value: "C" },
-      { label: "Таслах чадал", value: "6kA" },
-      { label: "Суурилуулалт", value: "DIN Rail" },
-    ],
-    featured: false,
-  },
-  {
-    id: "prod-xlpe-cable",
-    name: "XLPE Кабель 4x25 мм²",
-    slug: "xlpe-kabel-4x25",
+    id: "prod-copper-cable",
+    name: "Copper Cable 3x2.5",
+    slug: "copper-cable-3x2-5",
     category: "kabel-utas",
-    brand: "pcm",
-    price: 128000,
-    stockStatus: "Захиалгаар",
-    images: Array(3).fill("/placeholders/products/cable.svg"),
+    brand: "proproc",
+    price: 4500,
+    stockStatus: "Бэлэн",
+    images: ["/products/copper-cable.svg"],
     shortDescription:
-      "Барилга, дэд бүтэц, үйлдвэрийн хүчний тэжээлд ашиглах XLPE бүрээстэй кабель.",
+      "Барилга, оффис, ахуйн цахилгааны монтажид ашиглах зэс кабель.",
     description:
-      "XLPE Кабель 4x25 мм² нь дотор болон гадна трасс, кабель тавцан, сувагчлалд ашиглахад тохиромжтой хүчний кабель юм. Механик хамгаалалт болон температурын тогтвортой ажиллагаагаараа давуу.",
+      "3x2.5 мм² огтлолтой зэс кабель нь гэрэлтүүлэг, розетка, оффис болон ахуйн цахилгааны монтажид өргөн ашиглагддаг. Тоо хэмжээгээр нийлүүлнэ.",
     specs: [
-      { label: "Огтлол", value: "4x25 мм²" },
-      { label: "Тусгаарлагч", value: "XLPE" },
+      { label: "Огтлол", value: "3x2.5 мм²" },
+      { label: "Дамжуулагч", value: "Зэс" },
       { label: "Бүрээс", value: "PVC" },
-      { label: "Нэрлэсэн хүчдэл", value: "0.6/1kV" },
-      { label: "Ашиглалтын орчин", value: "Дотор / гадна" },
+      { label: "Хэрэглээ", value: "Дотор монтаж" },
+      { label: "Нийлүүлэлт", value: "Метрээр / боодлоор" },
     ],
     featured: true,
   },
   {
-    id: "prod-db-36",
-    name: "Түгээх Самбар 36 Line",
-    slug: "tugeeh-sambar-36-line",
+    id: "prod-distribution-box-12",
+    name: "Distribution Box 12 Module",
+    slug: "distribution-box-12-module",
     category: "sambar-khairtsag",
-    brand: "npc-electric",
-    price: 315000,
+    brand: "schneider-electric",
+    price: 95000,
     stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/panel.svg"),
+    images: ["/products/distribution-box.svg"],
     shortDescription:
-      "Оффис болон барилгын давхарын түгээлтэд зориулсан ханын угсралттай самбар.",
+      "Автомат таслуур, хамгаалалтын төхөөрөмж суурилуулах зориулалттай хайрцаг.",
     description:
-      "36 line багтаамжтай түгээх самбар нь хамгаалалтын автоматуудыг цэгцтэй, аюулгүй суурилуулахад зориулагдсан. Төслийн түвшний суурилуулалт болон өргөтгөлд тохиромжтой.",
+      "12 module багтаамжтай түгээх хайрцаг нь оффис, орон сууц, жижиг үйлчилгээний самбар угсралтад тохиромжтой. DIN rail суурилуулалттай.",
     specs: [
-      { label: "Багтаамж", value: "36 модуль" },
+      { label: "Багтаамж", value: "12 module" },
       { label: "Суурилуулалт", value: "Wall mount" },
-      { label: "Хаалганы төрөл", value: "Powder coated steel" },
-      { label: "IP хамгаалалт", value: "IP43" },
-      { label: "Өнгө", value: "Цагаан" },
+      { label: "Материал", value: "Insulated enclosure" },
+      { label: "Хэрэглээ", value: "MCB / RCD суурилуулалт" },
+      { label: "Орчин", value: "Дотор" },
     ],
     featured: true,
   },
   {
-    id: "prod-ex-light",
-    name: "Explosion Proof Light",
-    slug: "explosion-proof-light",
-    category: "gereltuuleg",
-    brand: "ausproof",
-    price: 980000,
+    id: "prod-control-panel-accessories",
+    name: "Control Panel Accessories",
+    slug: "control-panel-accessories",
+    category: "avtomatjuulalt",
+    brand: "siemens",
+    price: null,
+    stockStatus: "Үнийн санал",
+    images: ["/products/control-panel.svg"],
+    shortDescription:
+      "Үйлдвэрийн автоматжуулалт, control panel угсралтын дагалдах хэрэгсэл.",
+    description:
+      "Control panel угсралтад шаардлагатай relay, terminal, hinge, lock, wiring accessory болон automation cabinet-ийн дагалдах хэрэгслийг захиалгаар нийлүүлнэ.",
+    specs: [
+      { label: "Хэрэглээ", value: "Control panel / PLC cabinet" },
+      { label: "Төрөл", value: "Relay, terminal, lock, hinge" },
+      { label: "Нийлүүлэлт", value: "Захиалгаар" },
+      { label: "Баримт", value: "Part number-аар санал гаргана" },
+      { label: "Дэмжлэг", value: "Техникийн зөвлөгөөтэй" },
+    ],
+    featured: true,
+  },
+  {
+    id: "prod-digital-multimeter",
+    name: "Digital Multimeter",
+    slug: "digital-multimeter",
+    category: "hemjiltiin-bagaj",
+    brand: "fluke",
+    price: null,
     stockStatus: "Захиалгаар",
-    images: Array(3).fill("/placeholders/products/lighting.svg"),
+    images: ["/products/measuring-tools.svg"],
     shortDescription:
-      "Тэсрэх орчны шаардлагад нийцсэн хүнд нөхцлийн ажлын талбайн гэрэлтүүлэг.",
+      "Цахилгааны хэмжилт, оношилгоонд ашиглах мэргэжлийн багаж.",
     description:
-      "Explosion Proof Light нь газрын тос, агуулах, тусгай үйлдвэрлэлийн өндөр эрсдэлтэй орчинд ашиглах хамгаалалттай гэрэлтүүлгийн placeholder бүтээгдэхүүн юм.",
+      "Цахилгаанчин, инженер, maintenance багийн өдөр тутмын оношилгоонд ашиглах multimeter болон хэмжилтийн багажийг захиалгаар нийлүүлнэ.",
     specs: [
-      { label: "Хамгаалалтын ангилал", value: "Ex d IIB" },
-      { label: "IP хамгаалалт", value: "IP66" },
-      { label: "Чадал", value: "80W" },
-      { label: "Их бие", value: "Die-cast aluminum" },
-      { label: "Ашиглалтын температур", value: "-20°C ~ +55°C" },
+      { label: "Хэмжилт", value: "Voltage / Current / Resistance" },
+      { label: "Хэрэглээ", value: "Maintenance, commissioning" },
+      { label: "Нийлүүлэлт", value: "Захиалгаар" },
+      { label: "Ангилал", value: "Professional test tool" },
+      { label: "Дэмжлэг", value: "Загвар сонголтын зөвлөгөө" },
+    ],
+    featured: true,
+  },
+  {
+    id: "prod-ups-battery-12v",
+    name: "UPS Battery 12V",
+    slug: "ups-battery-12v",
+    category: "erchim-huch-battery",
+    brand: "ritar",
+    price: null,
+    stockStatus: "Захиалгаар",
+    images: ["/products/ups-battery.svg"],
+    shortDescription:
+      "UPS, control panel, backup power системд зориулсан зай хураагуур.",
+    description:
+      "UPS, дата төв, control panel, нарны систем болон backup power хэрэглээнд зориулсан 12V battery-г хүчин чадал, хэмжээ, part number-аар нийлүүлнэ.",
+    specs: [
+      { label: "Хүчдэл", value: "12V" },
+      { label: "Хэрэглээ", value: "UPS / Backup power" },
+      { label: "Төрөл", value: "Sealed lead-acid / AGM" },
+      { label: "Нийлүүлэлт", value: "Захиалгаар" },
+      { label: "Сонголт", value: "Ah хүчин чадлаар" },
+    ],
+    featured: true,
+  },
+  {
+    id: "prod-fire-alarm-panel",
+    name: "Fire Alarm Control Panel",
+    slug: "fire-alarm-control-panel",
+    category: "galyn-ayuulgui-baidal",
+    brand: "simplex",
+    price: null,
+    stockStatus: "Үнийн санал",
+    images: ["/products/fire-alarm-panel.svg"],
+    shortDescription:
+      "Барилга, үйлдвэр, агуулахын галын дохиоллын самбар, илрүүлэгчийн шийдэл.",
+    description:
+      "Галын аюул илрүүлэх самбар, detector, notification appliance болон системийн дагалдах хэрэгслийг төслийн шаардлагаар санал болгоно.",
+    specs: [
+      { label: "Хэрэглээ", value: "Fire detection system" },
+      { label: "Төрөл", value: "Control panel / detector / module" },
+      { label: "Нийлүүлэлт", value: "Төслийн үнийн санал" },
+      { label: "Орчин", value: "Барилга, үйлдвэр, агуулах" },
+      { label: "Дэмжлэг", value: "BOQ-оор санал гаргана" },
     ],
     featured: false,
   },
   {
-    id: "prod-control-relay",
-    name: "Control Relay Module",
-    slug: "control-relay-module",
-    category: "uildveriin-tonog",
-    brand: "hubner",
-    price: 356000,
-    stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/industrial.svg"),
+    id: "prod-industrial-network-switch",
+    name: "Industrial Network Switch",
+    slug: "industrial-network-switch",
+    category: "suljee-holboo",
+    brand: "moxa",
+    price: null,
+    stockStatus: "Захиалгаар",
+    images: ["/products/network-equipment.svg"],
     shortDescription:
-      "Самбарын удирдлага, автоматжуулалтын cabinet-д ашиглах control relay module.",
+      "Үйлдвэр, уул уурхай, автоматжуулалтын сүлжээнд ашиглах industrial switch.",
     description:
-      "Control Relay Module нь үйлдвэрийн самбар, automation cabinet болон process control системд дохионы дамжуулалт, relay-based control хийхэд зориулагдсан.",
+      "Хүнд нөхцөлд ажиллах industrial Ethernet switch, media converter, serial gateway болон network accessory-г захиалгаар нийлүүлнэ.",
     specs: [
-      { label: "Оролт / гаралт", value: "8 / 8" },
-      { label: "Coil voltage", value: "24V DC" },
-      { label: "Mounting", value: "DIN Rail" },
-      { label: "Housing", value: "Modular enclosure" },
-      { label: "Use case", value: "Panel automation" },
+      { label: "Хэрэглээ", value: "Industrial network" },
+      { label: "Порт", value: "Part number-аас хамаарна" },
+      { label: "Суурилуулалт", value: "DIN rail" },
+      { label: "Нийлүүлэлт", value: "Захиалгаар" },
+      { label: "Орчин", value: "Үйлдвэр, уурхай" },
     ],
     featured: false,
   },
   {
-    id: "prod-industrial-socket",
-    name: "Industrial Socket 63A",
-    slug: "industrial-socket-63a",
+    id: "prod-electrical-materials-kit",
+    name: "Electrical Materials Starter Kit",
+    slug: "electrical-materials-starter-kit",
     category: "tsahilgaany-material",
-    brand: "gms",
+    brand: "leipole",
     price: 118000,
     stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/material.svg"),
+    images: ["/products/electrical-materials.svg"],
     shortDescription:
-      "Барилгын талбай, үйлдвэр, хүнд нөхцөлд ашиглах өндөр хамгаалалттай socket outlet.",
+      "Розетка, залгуур, terminal, connector зэрэг монтажийн суурь материалын багц.",
     description:
-      "Industrial Socket 63A нь чийг, тоосжилт ихтэй орчинд ашиглах хамгаалалттай, олон дахин холболт салгалтыг даах чадвартай аж үйлдвэрийн залгуур юм.",
+      "Барилга, оффис, үйлчилгээний талбайн цахилгааны монтажид хэрэгтэй суурь материалуудыг тоо хэмжээ, шаардлагаар багцлан нийлүүлнэ.",
     specs: [
-      { label: "Гүйдэл", value: "63A" },
-      { label: "Хүчдэл", value: "380-415V" },
-      { label: "IP хамгаалалт", value: "IP67" },
-      { label: "Полюс", value: "3P+N+E" },
-      { label: "Материал", value: "Impact resistant polymer" },
-    ],
-    featured: true,
-  },
-  {
-    id: "prod-cable-tray",
-    name: "Hot Dip Cable Tray",
-    slug: "hot-dip-cable-tray",
-    category: "tsahilgaany-material",
-    brand: "hedweld",
-    price: 94000,
-    stockStatus: "Түр дууссан",
-    images: Array(3).fill("/placeholders/products/material.svg"),
-    shortDescription:
-      "Кабель трассын зохион байгуулалтад ашиглах зэврэлтэд тэсвэртэй hot-dip tray.",
-    description:
-      "Hot Dip Cable Tray нь урт хугацааны гадна орчны ашиглалт, үйлдвэрийн орчны шаардлагад нийцсэн кабель чиглүүлэлтийн шийдэл юм. Холбогч болон дагалдах хэрэгслүүдтэй нийлүүлнэ.",
-    specs: [
-      { label: "Материал", value: "Hot-dip galvanized steel" },
-      { label: "Өргөн", value: "300 мм" },
-      { label: "Өндөр", value: "50 мм" },
-      { label: "Урт", value: "2.5 м" },
-      { label: "Ашиглалт", value: "Indoor / Outdoor" },
+      { label: "Бүрдэл", value: "Socket, plug, terminal, connector" },
+      { label: "Хэрэглээ", value: "Монтаж, засвар үйлчилгээ" },
+      { label: "Нийлүүлэлт", value: "Багцаар / ширхэгээр" },
+      { label: "Орчин", value: "Барилга, оффис" },
+      { label: "Дэмжлэг", value: "BOQ-оор багцална" },
     ],
     featured: false,
   },
   {
-    id: "prod-contact-cleaner",
-    name: "CRC Contact Cleaner",
-    slug: "crc-contact-cleaner",
-    category: "selbeg-kheregsel",
-    brand: "crc",
-    price: 38000,
-    stockStatus: "Бэлэн",
-    images: Array(3).fill("/placeholders/products/maintenance.svg"),
+    id: "prod-safety-equipment-kit",
+    name: "Industrial Safety Equipment Kit",
+    slug: "industrial-safety-equipment-kit",
+    category: "tsahilgaany-material",
+    brand: "3m",
+    price: null,
+    stockStatus: "Захиалгаар",
+    images: ["/products/safety-equipment.svg"],
     shortDescription:
-      "Самбар, terminal, relay болон control board цэвэрлэх тусгай үйлчилгээний материал.",
+      "Уул уурхай, үйлдвэр, цахилгааны ажилд хэрэглэх хамгаалах хэрэгслийн багц.",
     description:
-      "CRC Contact Cleaner нь цахилгаан контакт, автоматжуулалтын самбар, датчик болон terminal block-ийн тос, тоос, исэлдлийг цэвэрлэх зориулалттай placeholder бүтээгдэхүүн юм.",
+      "Дуулга, бээлий, маск, хамгаалалтын хэрэгсэл болон safety материалуудыг ажлын орчны шаардлагаар нийлүүлнэ.",
     specs: [
-      { label: "Савлагаа", value: "350 мл" },
-      { label: "Хэрэглээ", value: "Контакт цэвэрлэгээ" },
-      { label: "Үлдэгдэл", value: "Residue free" },
-      { label: "Хатаах хугацаа", value: "Хурдан" },
-      { label: "Орчин", value: "Maintenance service" },
+      { label: "Хэрэглээ", value: "Үйлдвэр, уурхай, талбайн ажил" },
+      { label: "Төрөл", value: "PPE багц" },
+      { label: "Нийлүүлэлт", value: "Захиалгаар" },
+      { label: "Сонголт", value: "Ажлын эрсдэлээр" },
+      { label: "Дэмжлэг", value: "Тоо хэмжээний санал" },
     ],
     featured: false,
   },
@@ -533,14 +472,14 @@ export const inquiries: Inquiry[] = [
 
 export const companyMetrics: CompanyMetric[] = [
   {
-    value: "10+ жил",
+    value: "5+ жил",
     label: "туршлага",
-    description: "Цахилгаан бараа нийлүүлэлт, төслийн сервисийн тасралтгүй туршлага.",
+    description: "Цахилгаан бараа нийлүүлэлт, төслийн худалдан авалтын тасралтгүй туршлага.",
   },
   {
     value: "500+",
     label: "бүтээгдэхүүн",
-    description: "Каталогт ашиглахад бэлэн, төрөлжсөн placeholder барааны бүтэц.",
+    description: "Цахилгааны материал, автоматжуулалт, сэлбэгийн төрөлжсөн каталог.",
   },
   {
     value: "50+",
@@ -572,7 +511,7 @@ export const whyChooseUs: TrustItem[] = [
   },
   {
     title: "Албан ёсны нийлүүлэлт",
-    description: "Импорт, логистик, борлуулалт, сервисийг нэг цэгээс хариуцна.",
+    description: "Импорт, логистик, борлуулалт, нийлүүлэлтийг нэг цэгээс хариуцна.",
     icon: "boxes",
   },
   {
@@ -582,7 +521,7 @@ export const whyChooseUs: TrustItem[] = [
   },
   {
     title: "Аж ахуйн нэгжид зориулсан шийдэл",
-    description: "B2B supply chain, засвар үйлчилгээ, төсөл дээрх координацийг цогцоор нь шийднэ.",
+    description: "B2B supply chain, захиалга, төсөл дээрх координацийг цогцоор нь шийднэ.",
     icon: "briefcase",
   },
 ];
@@ -599,9 +538,9 @@ export const companyValues: CompanyValue[] = [
       "Үнийн санал, хугацаа, брэндийн сонголт, техникийн нөхцлийг тодорхой танилцуулж ажиллана.",
   },
   {
-    title: "Урт хугацааны сервис",
+    title: "Урт хугацааны нийлүүлэлт",
     description:
-      "Борлуулалтын дараах зөвлөгөө, сэлбэг, оношилгоо, засварын дэмжлэгээр харилцагчийн үйл ажиллагааг тогтвортой байлгана.",
+      "Борлуулалтын дараах зөвлөгөө, сэлбэг, дахин захиалга болон өргөтгөлийн дэмжлэгээр харилцагчийн үйл ажиллагааг тогтвортой байлгана.",
   },
 ];
 
@@ -610,7 +549,7 @@ export const processSteps: ProcessStep[] = [
     step: "01",
     title: "Хэрэгцээ тодорхойлох",
     description:
-      "Төслийн хэмжээ, ачаалал, орчин, шаардлагатай бараа эсвэл үйлчилгээний төрлийг тодорхойлно.",
+      "Төслийн хэмжээ, ачаалал, орчин, шаардлагатай бараа болон тоног төхөөрөмжийн төрлийг тодорхойлно.",
   },
   {
     step: "02",
@@ -628,7 +567,7 @@ export const processSteps: ProcessStep[] = [
     step: "04",
     title: "Дараах дэмжлэг",
     description:
-      "Сервис үйлчилгээ, сэлбэг, өргөтгөл шинэчлэлтийн зөвлөгөөг тасралтгүй үзүүлнэ.",
+      "Сэлбэг, дахин захиалга, өргөтгөл шинэчлэлтийн зөвлөгөөг тасралтгүй үзүүлнэ.",
   },
 ];
 

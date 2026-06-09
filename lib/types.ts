@@ -1,4 +1,4 @@
-export type StockStatus = "Бэлэн" | "Захиалгаар" | "Түр дууссан";
+export type StockStatus = "Бэлэн" | "Захиалгаар" | "Үнийн санал" | "Түр дууссан";
 
 export type InquiryStatus = "new" | "contacted" | "completed";
 
@@ -13,7 +13,7 @@ export interface Product {
   slug: string;
   category: string;
   brand: string;
-  price: number;
+  price: number | null;
   stockStatus: StockStatus;
   images: string[];
   shortDescription: string;
@@ -30,13 +30,7 @@ export interface Category {
   description: string;
 }
 
-export interface Brand {
-  id: string;
-  name: string;
-  logo: string;
-  description: string;
-  productCategories?: string[];
-}
+export type { Brand, BrandCategory, BrandWithLogoStatus } from "@/src/lib/brands";
 
 export interface Service {
   id: string;
@@ -54,7 +48,6 @@ export interface Inquiry {
   email: string;
   productId?: string;
   serviceId?: string;
-  quantity?: number;
   message: string;
   status: InquiryStatus;
   createdAt: string;
@@ -66,7 +59,6 @@ export interface InquirySubmission {
   email: string;
   productId?: string;
   serviceId?: string;
-  quantity?: number;
   message: string;
 }
 

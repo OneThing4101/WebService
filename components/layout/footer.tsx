@@ -15,8 +15,8 @@ export function Footer() {
           <div className="space-y-5">
             <SiteLogo inverse />
             <p className="max-w-md text-sm leading-7 text-white/70">
-              Цахилгаан бараа, барилгын материал, үйлдвэрлэлийн тоног төхөөрөмж болон
-              мэргэжлийн угсралт, сервисийн цогц шийдлийг нэг дороос.
+              Үйлдвэр, уул уурхай, барилга, оффисын цахилгаан тоног төхөөрөмж,
+              автоматжуулалт, материал болон сэлбэгийн нийлүүлэлтийг нэг дороос.
             </p>
             <div className="flex items-center gap-3">
               <Link
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-lg font-semibold">Бүтээгдэхүүний ангилал</h3>
+            <h3 className="font-display text-lg font-semibold">Ангилал</h3>
             <div className="mt-4 flex flex-col gap-3 text-sm text-white/70">
               {footerCategories.map((category) => (
                 <Link

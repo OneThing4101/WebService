@@ -14,8 +14,8 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
       <div className="space-y-10">
         <SectionHeading
           eyebrow="Каталогийн ангилал"
-          title="Ангилал бүрээр бүтээгдэхүүн, сервисээ хурдан олоорой"
-          description="Худалдаа болон үйлчилгээний үндсэн төрлүүдийг нэгтгэн харуулсан бүтэц. Дараа нь бодит зураг, бараа, логог шууд сольж ашиглах боломжтой."
+          title="Төслийн хэрэгцээнд тохирсон бараагаа хурдан олоорой"
+          description="Барилга, үйлдвэр, уул уурхай, оффисын цахилгаан хангамжид хэрэгтэй материал, тоног төхөөрөмж, багаж хэрэгслийг ангиллаар нь нэгтгэлээ."
         />
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {categories.map((category, index) => (

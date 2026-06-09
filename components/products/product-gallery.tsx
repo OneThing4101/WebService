@@ -1,44 +1,47 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import { ProductImage } from "@/components/products/product-image";
 import { cn } from "@/lib/utils";
 
 interface ProductGalleryProps {
   images: string[];
   alt: string;
+  category: string;
 }
 
-export function ProductGallery({ images, alt }: ProductGalleryProps) {
+export function ProductGallery({ images, alt, category }: ProductGalleryProps) {
   const [activeImage, setActiveImage] = useState(images[0]);
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] border border-border bg-[linear-gradient(145deg,#f5f9ff_0%,#fff6ee_100%)]">
-        <Image
-          src={activeImage}
-          alt={alt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
-      </div>
+      <ProductImage
+        src={activeImage}
+        alt={alt}
+        category={category}
+        className="aspect-[5/4] rounded-[2rem] border border-border"
+        imageClassName="p-10"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        priority
+      />
       <div className="grid grid-cols-3 gap-3">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <button
-            key={image}
+            key={`${image}-${index}`}
             type="button"
             onClick={() => setActiveImage(image)}
+            aria-label={`${alt} зураг ${index + 1}`}
             className={cn(
               "relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-white transition-colors",
               activeImage === image && "border-primary ring-2 ring-primary/15",
             )}
           >
-            <Image
+            <ProductImage
               src={image}
               alt={alt}
-              fill
-              className="object-cover"
+              category={category}
+              className="h-full w-full rounded-2xl"
+              imageClassName="p-4"
               sizes="(max-width: 1024px) 33vw, 160px"
             />
           </button>

@@ -54,8 +54,12 @@ export function ProductsExplorer({
       : true;
     const brandMatch = selectedBrand ? product.brand === selectedBrand : true;
     const stockMatch = stockStatus ? product.stockStatus === stockStatus : true;
-    const minMatch = minPrice ? product.price >= Number(minPrice) : true;
-    const maxMatch = maxPrice ? product.price <= Number(maxPrice) : true;
+    const minMatch = minPrice
+      ? product.price !== null && product.price >= Number(minPrice)
+      : true;
+    const maxMatch = maxPrice
+      ? product.price !== null && product.price <= Number(maxPrice)
+      : true;
     const searchMatch = normalizedSearch
       ? [product.name, product.shortDescription]
           .join(" ")
@@ -156,6 +160,7 @@ export function ProductsExplorer({
               <option value="">Бүгд</option>
               <option value="Бэлэн">Бэлэн</option>
               <option value="Захиалгаар">Захиалгаар</option>
+              <option value="Үнийн санал">Үнийн санал</option>
               <option value="Түр дууссан">Түр дууссан</option>
             </Select>
           </div>

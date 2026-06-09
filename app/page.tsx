@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
-import { BrandCard } from "@/components/brands/brand-card";
+import { BrandLogo } from "@/components/brands/brand-logo";
 import { CategoryGrid } from "@/components/home/category-grid";
 import { CtaBanner } from "@/components/home/cta-banner";
 import { HomeHero } from "@/components/home/home-hero";
 import { ProductCard } from "@/components/products/product-card";
-import { ServiceCard } from "@/components/services/service-card";
 import { IconToken } from "@/components/shared/icon-token";
 import { Reveal } from "@/components/shared/reveal";
 import { buttonVariants } from "@/components/ui/button";
@@ -15,24 +14,45 @@ import {
   companyMetrics,
   getBrands,
   getCategories,
-  getFeaturedProducts,
-  getServicesPreview,
   whyChooseUs,
 } from "@/lib/data";
+import { listManagedProducts } from "@/lib/catalog-store";
 import { createPageMetadata } from "@/lib/metadata";
+import { getBrandsWithLogoStatus } from "@/src/lib/brand-assets";
+
+const homeBrandSlugs = [
+  "siemens",
+  "johnson-controls",
+  "omron",
+  "asco-aventics",
+  "pfisterer",
+  "3m",
+  "fluke",
+  "schneider-electric",
+  "philips",
+  "axis",
+];
+
+export const dynamic = "force-dynamic";
 
 export const metadata = createPageMetadata({
-  title: "Цахилгаан бараа, тоног төхөөрөмж, үйлчилгээ",
+  title: "Цахилгаан бараа, тоног төхөөрөмжийн нийлүүлэлт",
   description:
-    "MonVolt Supply-ийн цахилгаан бараа, тоног төхөөрөмж, барилгын материал, угсралт засварын цогц үйлчилгээний танилцуулга.",
+    "ProProc-ийн цахилгаан бараа, тоног төхөөрөмж, автоматжуулалт, үйлдвэрийн материал болон сэлбэгийн нийлүүлэлтийн танилцуулга.",
   path: "/",
 });
 
-export default function HomePage() {
+export default async function HomePage() {
   const categories = getCategories();
-  const featuredProducts = getFeaturedProducts();
-  const servicesPreview = getServicesPreview();
+  const managedProducts = await listManagedProducts();
+  const featuredProducts = managedProducts
+    .filter((product) => product.featured)
+    .slice(0, 8);
   const brands = getBrands();
+  const allBrandsWithLogo = getBrandsWithLogoStatus();
+  const homeBrands = homeBrandSlugs.flatMap((slug) =>
+    allBrandsWithLogo.filter((brand) => brand.slug === slug).slice(0, 1),
+  );
 
   return (
     <>
@@ -45,11 +65,11 @@ export default function HomePage() {
       <section className="bg-panel/[0.55] py-16 sm:py-20">
         <Container className="space-y-10">
           <SectionHeading
-            eyebrow="Онцлох бараа"
-            title="Итгэл төрүүлэх худалдааны каталог"
-            description="Компанийн болон жижиглэн борлуулалтын аль алинд тохирох, техникийн мэдээлэл тодорхой, үнийн санал авах боломжтой бүтээгдэхүүнүүд."
+            eyebrow="Онцлох бүтээгдэхүүн"
+            title="Цахилгаан бараа, тоног төхөөрөмжийн каталог"
+            description="Барилга, үйлдвэр, уул уурхай, оффисын хэрэглээнд зориулсан цахилгааны материал, автоматжуулалт, гэрэлтүүлэг, багаж хэрэгслийг нийлүүлнэ."
           />
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {featuredProducts.map((product, index) => {
               const category = categories.find((item) => item.slug === product.category);
               const brand = brands.find((item) => item.id === product.brand);
@@ -68,56 +88,47 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-20">
-        <Container className="space-y-10">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeading
-              eyebrow="Сервис үйлчилгээ"
-              title="Угсралт, засвар, оношилгооны мэргэжлийн баг"
-              description="Бараа нийлүүлэлт дээр зогсохгүй, талбайн гүйцэтгэл, засвар, урсгал сервисийг нэг дороос хариуцна."
-            />
-            <Link href="/services" className={buttonVariants({ variant: "outline" })}>
-              Бүх үйлчилгээ
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
-            {servicesPreview.map((service, index) => (
-              <Reveal key={service.id} delay={index * 0.05}>
-                <ServiceCard service={service} />
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="overflow-hidden bg-panel/[0.55] py-16 sm:py-20">
+      <section className="overflow-hidden bg-white py-16 sm:py-20">
         <Container className="space-y-10">
           <SectionHeading
-            eyebrow="Хамтран ажилладаг байгууллагууд / Брэндүүд"
-            title="Олон улсын болон төслийн placeholder брэндийн бүтэц"
-            description="Одоогоор placeholder харагдацтай. Дараа нь бодит логонуудыг `brand.logo` талбарт холбож шууд солих боломжтой."
+            eyebrow="Supplier Brand Network"
+            title="Нийлүүлэх боломжтой гол брэндүүд"
+            description="Автоматжуулалт, цахилгаан тоног төхөөрөмж, хэмжилтийн багаж, battery, сүлжээ холбоо болон үйлдвэрийн хэрэгслийн брэндүүд."
           />
 
-          <div className="brand-marquee">
-            <div className="brand-marquee-track">
-              {[...brands, ...brands].map((brand, index) => (
-                <div
-                  key={`${brand.id}-${index}`}
-                  className="min-w-[180px] rounded-[1.5rem] border border-border bg-white px-6 py-5 text-center shadow-[0_18px_40px_rgba(14,34,64,0.05)]"
-                >
-                  <p className="font-display text-lg font-bold text-ink">{brand.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {brands.slice(0, 4).map((brand, index) => (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {homeBrands.map((brand, index) => (
               <Reveal key={brand.id} delay={index * 0.05}>
-                <BrandCard brand={brand} />
+                <article className="group flex h-full flex-col rounded-[1.5rem] border border-border bg-white p-3 shadow-[0_16px_44px_rgba(15,32,58,0.045)] transition-transform hover:-translate-y-0.5">
+                  <BrandLogo
+                    brand={brand}
+                    className="h-20 rounded-[1.15rem] border-slate-100 bg-[#fbfdff]"
+                  />
+                  <div className="mt-4 flex flex-1 flex-col">
+                    <h3 className="font-display text-base font-bold text-ink">
+                      {brand.name}
+                    </h3>
+                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+                      {brand.category}
+                    </p>
+                  </div>
+                </article>
               </Reveal>
             ))}
+          </div>
+
+          <div className="flex justify-center">
+            <Link
+              href="/brands"
+              className={buttonVariants({
+                variant: "outline",
+                size: "lg",
+                className: "bg-white shadow-none",
+              })}
+            >
+              Бүх брэнд харах
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </Container>
       </section>
@@ -126,8 +137,8 @@ export default function HomePage() {
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Яагаад бид"
-            title="Төсөл, худалдан авалт, сервис дээр төвлөрсөн компанийн байршуулалт"
-            description="B2B болон B2C харилцагчдын итгэлийг нэмэхэд чиглэсэн corporate messaging болон үйлчилгээний давуу талууд."
+            title="Төсөл, худалдан авалт, нийлүүлэлт дээр төвлөрсөн ProProc"
+            description="B2B болон B2C харилцагчдын итгэлийг нэмэхэд чиглэсэн corporate messaging болон нийлүүлэлтийн давуу талууд."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {whyChooseUs.map((item, index) => (

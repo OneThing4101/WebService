@@ -13,10 +13,8 @@ import {
   getBrands,
   getCategories,
   getCategoryBySlug,
-  getProductBySlug,
-  getProducts,
-  getRelatedProducts,
 } from "@/lib/data";
+import { listManagedProducts } from "@/lib/catalog-store";
 import { createPageMetadata } from "@/lib/metadata";
 import { formatPrice } from "@/lib/utils";
 
@@ -24,15 +22,14 @@ type ProductDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  return getProducts().map((product) => ({ slug: product.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: ProductDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const products = await listManagedProducts();
+  const product = products.find((item) => item.slug === slug);
 
   if (!product) {
     return createPageMetadata({
@@ -53,7 +50,8 @@ export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const products = await listManagedProducts();
+  const product = products.find((item) => item.slug === slug);
 
   if (!product) {
     notFound();
@@ -61,9 +59,12 @@ export default async function ProductDetailPage({
 
   const category = getCategoryBySlug(product.category);
   const brand = getBrandById(product.brand);
-  const relatedProducts = getRelatedProducts(product.slug);
+  const relatedProducts = products
+    .filter((item) => item.slug !== product.slug && item.category === product.category)
+    .slice(0, 4);
   const categories = getCategories();
   const brands = getBrands();
+  const priceLabel = formatPrice(product.price);
 
   return (
     <>
@@ -96,7 +97,7 @@ export default async function ProductDetailPage({
               <div className="rounded-[1.8rem] border border-border bg-white p-6 shadow-[0_20px_50px_rgba(14,34,64,0.06)]">
                 <p className="text-sm font-medium text-muted">Үнэ</p>
                 <p className="mt-2 font-display text-4xl font-bold text-primary">
-                  {formatPrice(product.price)}
+                  {priceLabel}
                 </p>
                 <p className="mt-4 inline-flex rounded-full bg-panel px-4 py-2 text-sm font-semibold text-ink">
                   Нөөц: {product.stockStatus}
@@ -105,7 +106,7 @@ export default async function ProductDetailPage({
                   href="#inquiry-form"
                   className={buttonVariants({ className: "mt-5 w-full" })}
                 >
-                  Үнийн санал авах
+                  Энэ бүтээгдэхүүний үнийн санал авах
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -117,7 +118,11 @@ export default async function ProductDetailPage({
       <section className="py-16 sm:py-20">
         <Container className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_380px]">
           <div className="space-y-8">
-            <ProductGallery images={product.images} alt={product.name} />
+            <ProductGallery
+              images={product.images}
+              alt={product.name}
+              category={product.category}
+            />
 
             <div className="rounded-[2rem] border border-border bg-white p-6 shadow-[0_20px_50px_rgba(14,34,64,0.06)] sm:p-8">
               <div className="flex items-center gap-3">
@@ -148,7 +153,7 @@ export default async function ProductDetailPage({
               <div className="mt-5 grid gap-4">
                 <InfoLine label="Брэнд" value={brand?.name ?? "Тодорхойгүй"} />
                 <InfoLine label="Ангилал" value={category?.name ?? "Тодорхойгүй"} />
-                <InfoLine label="Үнэ" value={formatPrice(product.price)} />
+                <InfoLine label="Үнэ" value={priceLabel} />
                 <InfoLine label="Нөөц" value={product.stockStatus} />
               </div>
             </div>
@@ -156,7 +161,8 @@ export default async function ProductDetailPage({
             <InquiryForm
               productId={product.id}
               title={`${product.name} бүтээгдэхүүний хүсэлт`}
-              description="Тоо хэмжээ, техникийн шаардлага, хүргэлтийн нөхцлөө бичиж илгээнэ үү."
+              description="Техникийн шаардлага, хүргэлтийн нөхцөл болон нэмэлт мэдээллээ бичиж илгээнэ үү."
+              submitLabel="Энэ бүтээгдэхүүний үнийн санал авах"
             />
           </div>
         </Container>

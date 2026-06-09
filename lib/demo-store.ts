@@ -2,7 +2,7 @@
 
 import type { Inquiry, InquirySubmission } from "@/lib/types";
 
-const INQUIRY_STORAGE_KEY = "monvolt-demo-inquiries";
+const INQUIRY_STORAGE_KEY = "proproc-demo-inquiries";
 
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") {
@@ -53,7 +53,6 @@ export function appendInquiry(input: InquirySubmission) {
     email: input.email,
     productId: input.productId,
     serviceId: input.serviceId,
-    quantity: input.quantity,
     message: input.message,
     status: "new",
     createdAt: new Date().toISOString(),

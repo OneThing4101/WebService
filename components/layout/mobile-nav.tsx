@@ -1,23 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Phone, Search, X } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { Menu, Phone, X } from "lucide-react";
+import { useState } from "react";
 import { mainNavigation } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState("");
-  const router = useRouter();
-
-  function onSearch(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const query = search.trim();
-    setOpen(false);
-    router.push(query ? `/products?q=${encodeURIComponent(query)}` : "/products");
-  }
 
   return (
     <div className="lg:hidden">
@@ -36,23 +26,7 @@ export function MobileNav() {
           open && "pointer-events-auto opacity-100",
         )}
       >
-        <form onSubmit={onSearch} className="flex items-center gap-2 rounded-full bg-panel p-2">
-          <Search className="ml-2 h-4 w-4 text-muted" />
-          <input
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            placeholder="Бараа хайх..."
-            className="h-9 flex-1 bg-transparent text-sm text-ink outline-none placeholder:text-muted"
-          />
-          <button
-            type="submit"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
-          >
-            Хайх
-          </button>
-        </form>
-
-        <nav className="mt-5 flex flex-col gap-2">
+        <nav className="flex flex-col gap-2">
           {mainNavigation.map((item) => (
             <Link
               key={item.href}

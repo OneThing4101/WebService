@@ -2,8 +2,11 @@ import { Suspense } from "react";
 import { ProductsExplorer } from "@/components/products/products-explorer";
 import { PageHero } from "@/components/shared/page-hero";
 import { Container } from "@/components/ui/container";
-import { getBrands, getCategories, getProducts } from "@/lib/data";
+import { getBrands, getCategories } from "@/lib/data";
+import { listManagedProducts } from "@/lib/catalog-store";
 import { createPageMetadata } from "@/lib/metadata";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = createPageMetadata({
   title: "Бүтээгдэхүүн",
@@ -12,8 +15,8 @@ export const metadata = createPageMetadata({
   path: "/products",
 });
 
-export default function ProductsPage() {
-  const products = getProducts();
+export default async function ProductsPage() {
+  const products = await listManagedProducts();
   const categories = getCategories();
   const brands = getBrands();
 

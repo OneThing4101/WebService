@@ -2,7 +2,11 @@ export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export function formatPrice(value: number) {
+export function formatPrice(value: number | null) {
+  if (value === null) {
+    return "Үнийн санал авах";
+  }
+
   return `${new Intl.NumberFormat("mn-MN").format(value)}₮`;
 }
 
